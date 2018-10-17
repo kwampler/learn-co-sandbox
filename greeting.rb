@@ -1,9 +1,9 @@
-def greeting
-  puts "Hello World"
+def a
+  puts 1+1
 end
+ 
 
-greeting
-greeting
-greeting
-greeting
-greeting
+
+
+
+
