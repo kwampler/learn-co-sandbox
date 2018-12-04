@@ -1,4 +1,4 @@
-module MontanaResortSnowfall
+module MontanaResortSnowfal
 end
 
 require_relative '../config/environment'
