@@ -2,28 +2,27 @@
 class MontanaResortSnowfall::CLI
 
   def call
-    WorldsBestRestaurants::Scraper.new.make_restaurants
-    puts "Welcome to the 50 Best Restaurants in the World"
+    MontanaResortSnowfall::Scraper.new.make_snowfall
+    puts "Want to shred the Nar Nar?  Checkout who has the Pow Pow!"
     start
   end
 
   def start
-    puts ""
-    puts "What number restaurants would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
+    puts "How many resorts would you like to see ranked?  The top 1-5, the top 1-10, or the top 1-20?"
     input = gets.strip.to_i
 
-    print_restaurants(input)
+    print_snowfall(input)
 
     puts ""
-    puts "What restaurant would you like more information on?"
+    puts "What resort would you like more information on?"
     input = gets.strip
 
-    restaurant = WorldsBestRestaurants::Restaurant.find(input.to_i)
+    resort = MontanaResortSnowfall::Resort.find(input.to_i)
 
-    print_restaurant(restaurant)
+    print_resort(resort)
 
     puts ""
-    puts "Would you like to see another restaurant? Enter Y or N"
+    puts "Would you like to see snowfall from another resort? Enter Y or N"
 
     input = gets.strip.downcase
     if input == "y"
@@ -39,29 +38,29 @@ class MontanaResortSnowfall::CLI
     end
   end
 
-  def print_restaurant(restaurant)
+  def print_resort
     puts ""
-    puts "----------- #{restaurant.name} - #{restaurant.position} -----------"
+    puts "----------- #{resort.name} - #{resort.position} -----------"
     puts ""
-    puts "Location:           #{restaurant.location}"
-    puts "Head Chef:          #{restaurant.head_chef}"
-    puts "Style of Food:      #{restaurant.food_style}"
-    puts "Standout Dish:      #{restaurant.best_dish}"
-    puts "Contact:            #{restaurant.contact}"
+    puts "Location:           #{resort.location}"
+    #shouldn't it print the name of the resort? puts "Name"
+    puts "Zipcode:          #{resort.zipcode}"#or town name
+    puts "Elevation:      #{resort.elevation}"
+    puts ":Ticket Price      #{resort.ticket_price}"
     puts "Website:            #{restaurant.website_url}"
     puts ""
     puts "---------------Description--------------"
     puts ""
-    puts "#{restaurant.description}"
+    puts "#resort.description}"
     puts ""
   end
 
-  def print_restaurants(from_number)
+  def print_snowfall(from_number)
     puts ""
-    puts "---------- Restaurants #{from_number} - #{from_number+9} ----------"
+    #in inches puts "---------- Snowfall #{from_number} - #{from_number+9} ----------"
     puts ""
-    WorldsBestRestaurants::Restaurant.all[from_number-1, 10].each.with_index(from_number) do |restaurant, index|
-      puts "#{index}. #{restaurant.name} - #{restaurant.location}"
+    MontanaResortSnowfall::Resort.all[from_number-1, 10].each.with_index(from_number) do |restaurant, index|
+      puts "#{index}. #{resort.name} - #{resort.location}"
     end
   end
 
