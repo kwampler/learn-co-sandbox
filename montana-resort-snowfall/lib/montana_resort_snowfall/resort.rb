@@ -1,5 +1,5 @@
 class WorldsBestRestaurants::Restaurant
-
+  #need attr_accessor from scraper file attributes
   attr_accessor :name, :position, :location, :url, :head_chef, :website_url, :food_style, :best_dish, :contact, :description
 
   @@all = []
@@ -13,7 +13,8 @@ class WorldsBestRestaurants::Restaurant
       )
   end
 
-  def initialize(name=nil, url=nil, location=nil, position=nil)
+  def initialize(att_hash, name=nil, url=nil, location=nil, position=nil)
+    @title 
     @name = name
     @url = url
     @location = location

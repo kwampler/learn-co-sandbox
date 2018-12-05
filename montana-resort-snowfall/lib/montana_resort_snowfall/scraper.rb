@@ -1,8 +1,25 @@
 class MontanaResortSnowfall::Scraper
 
-  def get_page
-    Nokogiri::HTML(open("http://www.skicentral.com/montana-skireport.html"))
+  
+  def self.scrape_resorts
+    index_page = Nokogiri::HTML(open("http://www.skicentral.com/montana-skireport.html"))
+    binding.pry
+  
+  arrray_of_resorts = index.page.css("div.")
+  
+  array_of_resorts.each do |resort_description|
+    attributes = 
+    {
+      resort_name:  ,
+      elevation:  ,
+      
+    }
+   Resort.new(attributes) 
   end
+
+ # def get_page
+    #Nokogiri::HTML(open("http://www.skicentral.com/montana-skireport.html"))
+  #end
 
   def scrape_resorts_index
      self.get_page.css("div#t1-50 li")
