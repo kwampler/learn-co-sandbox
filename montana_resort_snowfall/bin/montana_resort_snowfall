@@ -1,0 +1,3 @@
+require_relative '../lib/montana_resort_snowfall'
+
+MontanaResortSnowfall::CLI.new.call
