@@ -1,7 +1,10 @@
-class MontanaSkiResorts::Scraper
+require 'pry'
+require 'Nokogiri'
+class Scraper
 
   def get_page
     Nokogiri::HTML(open("http://www.skicentral.com/montana-skireport.html"))
+    binding.pry
   end
 
   def self.scrape_index_page

@@ -1,5 +1,5 @@
 
-class MontanaSkiResorts::CLI
+class CLI
 
   def call
     MontanaSkiResorts::Scraper.new.make_resorts
