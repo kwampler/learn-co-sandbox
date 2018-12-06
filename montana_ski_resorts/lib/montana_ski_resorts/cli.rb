@@ -1,8 +1,8 @@
 
-class MontanaResortSnowfall::CLI
+class MontanaSkiResorts::CLI
 
   def call
-    MontanaResortSnowfall::Scraper.new.make_snowfall
+    MontanaSkiResorts::Scraper.new.make_resorts
     puts "Want to shred the Nar Nar?  Checkout who has the Pow Pow!"
     start
   end
@@ -17,7 +17,7 @@ class MontanaResortSnowfall::CLI
     puts "What resort would you like more information on?"
     input = gets.strip
 
-    resort = MontanaResortSnowfall::Resort.find(input.to_i)
+    resort = MontanaSkiResorts::Resort.find(input.to_i)
 
     print_resort(resort)
 
@@ -59,7 +59,7 @@ class MontanaResortSnowfall::CLI
     puts ""
     #in inches puts "---------- Snowfall #{from_number} - #{from_number+9} ----------"
     puts ""
-    MontanaResortSnowfall::Resort.all[from_number 1, 10].each.with_index(from_number) do |resort, index|
+    MontanaSkiResorts::Resort.all[from_number 1, 10].each.with_index(from_number) do |resort, index|
       puts "#{index}. #{resort.name} - #{resort.location}"
     end
   end
