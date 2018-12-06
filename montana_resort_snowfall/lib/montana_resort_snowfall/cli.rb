@@ -59,7 +59,7 @@ class MontanaResortSnowfall::CLI
     puts ""
     #in inches puts "---------- Snowfall #{from_number} - #{from_number+9} ----------"
     puts ""
-    MontanaResortSnowfall::Resort.all[from_number-1, 10].each.with_index(from_number) do |restaurant, index|
+    MontanaResortSnowfall::Resort.all[from_number 1, 10].each.with_index(from_number) do |resort, index|
       puts "#{index}. #{resort.name} - #{resort.location}"
     end
   end
