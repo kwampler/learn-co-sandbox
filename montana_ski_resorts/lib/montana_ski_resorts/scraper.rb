@@ -1,4 +1,4 @@
-class MontanaResortSnowfall::Scraper
+class MontanaSkiResorts::Scraper
 
   def get_page
     Nokogiri::HTML(open("http://www.skicentral.com/montana-skireport.html"))
@@ -10,7 +10,7 @@ class MontanaResortSnowfall::Scraper
 
   def make_resorts
     scrape_resorts_index.each do |r|
-      MontanaResortSnowfall::Resort.new_from_index_page(r)
+      MontanaSkiResorts::Resort.new_from_index_page(r)
     end
   end
 end
